@@ -47,4 +47,7 @@ dependencies {
     implementation ("com.squareup.retrofit2:converter-gson:2.3.0")
     implementation ("com.squareup.okhttp3:logging-interceptor:3.4.1")
     implementation ("com.github.f0ris.sweetalert:library:1.5.6")
+    implementation ("com.google.code.gson:gson:2.8.8")
+    implementation ("com.google.mlkit:face-detection:16.1.5")
+
 }

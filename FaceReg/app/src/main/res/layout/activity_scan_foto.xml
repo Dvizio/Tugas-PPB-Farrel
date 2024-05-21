@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#989898"
     android:orientation="vertical"
     tools:context=".ScanFoto">
 
@@ -20,9 +21,10 @@
             android:layout_height="wrap_content"
             android:layout_gravity="center"
             android:layout_marginBottom="40dp"
+            android:layout_marginTop="15dp"
             android:text="Wink to Capure Photo"
             android:textAlignment="center"
-            android:textColor="#118AB2"
+            android:textColor="#000000"
             android:textSize="25sp" />
 
         <SurfaceView

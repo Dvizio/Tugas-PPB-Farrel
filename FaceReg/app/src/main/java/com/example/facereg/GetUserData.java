@@ -30,17 +30,19 @@ import retrofit2.Response;
 
 public class GetUserData extends AppCompatActivity {
     private EditText nrpUser;
-    //    private EditText nama;
+
     private Button btnGetUser;
     String nrpSTR;
-//    String namaSTR;
+    private String toDo;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_getuserdata);
 
-
+        Intent intent = getIntent();
+        toDo = intent.getStringExtra("BTN");
         nrpUser = findViewById(R.id.nrpuser);
 
         btnGetUser = findViewById(R.id.btngetuser);
@@ -49,23 +51,18 @@ public class GetUserData extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 nrpSTR = nrpUser.getText().toString();
-//                namaSTR = nama.getText().toString();
 
                 if (nrpSTR.trim().length() > 5) {
-//                    if (namaSTR.length() == 3) {
-                    Intent intent = new Intent(GetUserData.this, DisplayUserData.class);
+                    Intent intent = new Intent(GetUserData.this, DisplayUserDataSingle.class);
                     intent.putExtra("nrp", nrpSTR);
-
+                    intent.putExtra("BTN", toDo);
                     startActivity(intent);
-//                    }
-//                    else {
-                    Toast.makeText(GetUserData.this, "Periksa Nrp", Toast.LENGTH_SHORT).show();
+
                 }
-//                }
-//                else{
-//                    Toast.makeText(getBaseContext(),"Lengkapi NRP",Toast.LENGTH_LONG).show();
-////                    nrp.requestFocus();
-//                }
+
+                else{
+                    Toast.makeText(getBaseContext(),"Lengkapi NRP",Toast.LENGTH_LONG).show();
+                }
             }
         });
     }

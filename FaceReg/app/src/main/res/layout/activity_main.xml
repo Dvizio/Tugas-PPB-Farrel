@@ -1,37 +1,112 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#FFFFFF"
+    android:backgroundTint="#FFFFFF"
     tools:context=".MainActivity">
 
-    <Button
-        android:id="@+id/btnRegister"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerInParent="true"
-        android:text="Register" />
+    <!-- Register Button -->
 
-    <Button
-        android:id="@+id/btnCheckUser"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnRegister"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentEnd="true"
-        android:layout_marginStart="146dp"
-        android:layout_marginTop="59dp"
-        android:layout_marginEnd="145dp"
-        android:text="Check User" />
+        android:layout_height="match_parent"
+        android:layout_below="@id/imageView"
+        android:layout_marginTop="130dp"
+        android:background="@drawable/blackroundedcard"
+        android:orientation="vertical"
+        android:scaleType="fitEnd">
 
-    <Button
-        android:id="@+id/btnDeleteUser"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/btnCheckUser"
-        android:layout_alignParentEnd="true"
-        android:layout_marginTop="92dp"
-        android:layout_marginEnd="146dp"
-        android:text="Delete User" />
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRegister"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/custom_button_toned"
+            android:textColor="#000000"
+            android:backgroundTint="@null"
+            android:layout_alignParentBottom="true"
+            android:layout_marginTop="60dp"
+            android:layout_marginHorizontal="16dp"
+            android:layout_marginBottom="16dp"
+            android:text="Register" />
+
+        <!-- Buttons Grid -->
+        <GridLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/btnRegister"
+            android:alignmentMode="alignMargins"
+            android:background="#000000"
+            android:textColor="#FFFFFF"
+            android:columnCount="2"
+            android:columnOrderPreserved="false"
+            android:backgroundTint="@null"
+            android:rowCount="2">
+
+            <!-- Check User Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnCheckUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:background="@drawable/custom_button_light"
+                android:textColor="#000000"
+                android:backgroundTint="@null"
+                android:text="Check User" />
+
+            <!-- User List Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btnDeleteUser"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:background="@drawable/custom_button_light"
+                android:textColor="#000000"
+                android:layout_margin="16dp"
+                android:backgroundTint="@null"
+                android:text="User List" />
+
+            <!-- Find Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/findBTN"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:background="@drawable/custom_button_light"
+                android:textColor="#000000"
+                android:backgroundTint="@null"
+                android:text="Find" />
+
+            <!-- Verify Button -->
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/verifyBTN"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:background="@drawable/custom_button_light"
+                android:textColor="#000000"
+                android:layout_columnWeight="1"
+                android:layout_margin="16dp"
+                android:backgroundTint="@null"
+                android:text="Verify" />
+        </GridLayout>
+        <!-- Add your views or widgets here -->
+
+    </LinearLayout>
+
+
+        <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="match_parent"
+        android:layout_height="300dp"
+        android:layout_alignParentTop="true"
+        android:layout_marginTop="0dp"
+        android:background="#FFFFFF"
+        android:backgroundTint="#FFFFFF"
+        app:srcCompat="@drawable/biowelcomepage" />
+
 
 </RelativeLayout>

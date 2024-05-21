@@ -3,29 +3,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#989898"
     tools:context=".Preview">
 
+    <!-- Image View -->
     <ImageView
         android:id="@+id/imageView5"
         android:scaleType="fitCenter"
-        android:layout_width="match_parent"
-        android:layout_height="415dp"
-        android:layout_marginTop="-2dp"
+        android:layout_width="300dp"
+        android:layout_height="400dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="30dp"
+        android:layout_marginBottom="150dp"
         tools:srcCompat="@tools:sample/backgrounds/scenic" />
 
-    <Button
+    <!-- Next Button -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btnnext"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/imageView5"
-        android:layout_marginTop="76dp"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/custom_button_toned"
+        android:layout_marginTop="-20dp"
         android:text="Next" />
 
-    <Button
+    <!-- Take Button -->
+    <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/btntake"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/btnnext"
+        android:layout_centerHorizontal="true"
+        android:layout_marginHorizontal="12dp"
+        android:background="@drawable/custom_button_light"
         android:layout_marginTop="16dp"
         android:text="Take" />
 

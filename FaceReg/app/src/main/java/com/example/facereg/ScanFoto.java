@@ -40,12 +40,15 @@ public class ScanFoto extends AppCompatActivity implements SurfaceHolder.Callbac
     private String[] neededPermissions = new String[]{CAMERA};
     private FaceDetector detector;
     private CameraSource cameraSource;
+    private String toDo;
     private Button btnExit;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_scan_foto);
 
         Intent intent = getIntent();
+        toDo = intent.getStringExtra("BTN");
+
 
 
         surfaceView = findViewById(R.id.surfaceView);
@@ -228,6 +231,7 @@ public class ScanFoto extends AppCompatActivity implements SurfaceHolder.Callbac
         // Save or Display image as per your requirements. Here we display the image.
 
         Intent intent = new Intent(this, Preview.class);
+        intent.putExtra("BTN", toDo);
         startActivity(intent);
     }
     public static Bitmap rotateImage(Bitmap source, float angle) {

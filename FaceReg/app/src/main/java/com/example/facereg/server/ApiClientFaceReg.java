@@ -17,15 +17,23 @@ import retrofit2.http.DELETE;
 
 
 public interface ApiClientFaceReg {
-    @POST("/sendImage")
+    @POST("/users")
     Call<ResponseApi> kirim(@Body ResponseApi responseApi);
 
-    @GET("/image")
-    Call<ArrayList<ResponseApi>> getUsers();
-    @GET("/image/{Nrp}")
-    Call<ArrayList<ResponseApi>> getUser(@Path("Nrp") String nrp);
-    @DELETE("/image/{subjectId}")
-    Call<ArrayList<ResponseApi>> deleteItem(@Path("subjectId") String subjectId);
+    @POST("/users/find/")
+    Call<HeaderApiIMG> find(@Body ResponseApi responseApi);
+    @POST("/users/verify/{Nrp}")
+    Call<FaceVerificationResponseAPI> verify(@Path("Nrp") String nrp, @Body ResponseApi responseApi);
+
+    @GET("/users")
+    Call<HeaderApi> getUsers();
+    @GET("/users/{Nrp}")
+    Call<HeaderApiIMG> getUser(@Path("Nrp") String nrp);
+    @DELETE("/users/{subjectId}")
+    Call<HeaderApiIMG> deleteItem(@Path("subjectId") String subjectId);
+
+// TODO    @POST("/users/verify/{Nrp}")
+//    Call<HeaderApi> verifyface(@Path("Nrp") String subjectId);
 
 
 

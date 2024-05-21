@@ -7,20 +7,16 @@ import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.facereg.server.ResponseApi;
+import com.example.facereg.server.ResponseApiUserData;
 
 import java.util.ArrayList;
-
-
-
+import java.util.List;
 
 
 public class RecyclerViewAdapterForUserData extends RecyclerView.Adapter<RecyclerViewAdapterForUserData.MyViewHolder> {
@@ -30,10 +26,10 @@ public class RecyclerViewAdapterForUserData extends RecyclerView.Adapter<Recycle
     }
 
     private Context context;
-    private ArrayList<ResponseApi> imageList;
+    private ArrayList<ResponseApiUserData> imageList;
 
 
-    public RecyclerViewAdapterForUserData(Context context, ArrayList<ResponseApi> imageList) {
+    public RecyclerViewAdapterForUserData(Context context, ArrayList<ResponseApiUserData> imageList) {
         this.context = context;
         this.imageList = imageList;
     }
@@ -41,7 +37,7 @@ public class RecyclerViewAdapterForUserData extends RecyclerView.Adapter<Recycle
 
     @NonNull
     public MyViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View view = LayoutInflater.from(context).inflate(R.layout.activity_userlist,parent,false);
+        View view = LayoutInflater.from(context).inflate(R.layout.activity_userdatalist,parent,false);
         MyViewHolder vh = new MyViewHolder(view);
         return vh;
     }
@@ -54,23 +50,23 @@ public class RecyclerViewAdapterForUserData extends RecyclerView.Adapter<Recycle
     }
     @Override
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
-        ResponseApi imageModel = imageList.get(position);
-
+        ResponseApiUserData imageModel = imageList.get(position);
+//        Toast.makeText(RecyclerViewAdapterForUserData.this.context, imageModel.toString(), Toast.LENGTH_LONG).show();
         //get data
         //we need All data
         String sname = imageModel.getName();
         String snrp = imageModel.getNrp();
-        String simage = imageModel.getImage();
+
 
 
         //set data in view
         holder.subjectname.setText(sname);
         holder.subjectnrp.setText(snrp);
-        holder.subjectImage.setImageBitmap(decodeFromBase64(simage));
+
 
     }
 
-    public void setData(ArrayList<ResponseApi> data){
+    public void setData(List<ResponseApiUserData> data){
         imageList.clear();
         imageList.addAll(data);
         notifyDataSetChanged();
@@ -81,17 +77,16 @@ public class RecyclerViewAdapterForUserData extends RecyclerView.Adapter<Recycle
         //view for row_contact_item
         TextView subjectname;
         TextView subjectnrp;
-        ImageView subjectImage;
+
         LinearLayout subjectLinearLayout;
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
 
             //init view
-            subjectname = itemView.findViewById(R.id.sname);
-            subjectnrp = itemView.findViewById(R.id.snrp);
-            subjectImage = itemView.findViewById(R.id.imageLayout);
-            subjectLinearLayout = itemView.findViewById(R.id.subjectLL);
+            subjectname = itemView.findViewById(R.id.username);
+            subjectnrp = itemView.findViewById(R.id.usernrp);
+            subjectLinearLayout = itemView.findViewById(R.id.userLL);
         }
     }
 }

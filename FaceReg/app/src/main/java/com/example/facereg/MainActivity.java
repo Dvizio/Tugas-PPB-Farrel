@@ -10,7 +10,8 @@ import android.widget.Button;
 public class MainActivity extends AppCompatActivity {
     private Button btnReg;
     private Button btnCheckuser;
-    private Button btnDeleteUser;
+    private Button btnDisplayalluser,btnFindUser,btnVerifyUser;
+    private String toDo = "FindBtn";
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -18,26 +19,49 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         btnReg= findViewById(R.id.btnRegister);
         btnCheckuser = findViewById(R.id.btnCheckUser);
-        btnDeleteUser = findViewById(R.id.btnDeleteUser);
+        btnDisplayalluser = findViewById(R.id.btnDeleteUser);
+        btnFindUser = findViewById(R.id.findBTN);
+        btnVerifyUser = findViewById(R.id.verifyBTN);
+
+        btnVerifyUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ScanFoto.class);
+                toDo = "Verify";
+                intent.putExtra("BTN", toDo);
+                startActivity(intent);
+            }
+        });
+        btnFindUser.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(MainActivity.this, ScanFoto.class);
+                toDo = "Find";
+                intent.putExtra("BTN" , toDo);
+                startActivity(intent);
+            }
+        });
 
         btnReg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(MainActivity.this, ScanFoto.class);
+                intent.putExtra("BTN" , toDo);
                 startActivity(intent);
             }
         });
         btnCheckuser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, DisplayAllUser.class);
+                Intent intent = new Intent(MainActivity.this, GetUserData.class);
+                intent.putExtra("BTN" , toDo);
                 startActivity(intent);
             }
         });
-        btnDeleteUser.setOnClickListener(new View.OnClickListener() {
+        btnDisplayalluser.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, NameData.class);
+                Intent intent = new Intent(MainActivity.this, DisplayAllUser.class);
                 startActivity(intent);
             }
         });

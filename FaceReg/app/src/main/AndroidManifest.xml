@@ -35,6 +35,17 @@
             android:name=".DisplayAllUser"
             android:exported="false" />
         <activity
+            android:name=".GetUserData"
+            android:exported="false"/>
+        <activity
+        android:name=".DisplayUserData"
+        android:exported="false"/>
+
+        <activity
+            android:name=".DisplayUserDataSingle"
+            android:exported="false"/>
+
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
