@@ -36,6 +36,9 @@
             android:name=".UserLoggedIn"
             android:exported="false" />
         <activity
+            android:name=".ShowLogger"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>

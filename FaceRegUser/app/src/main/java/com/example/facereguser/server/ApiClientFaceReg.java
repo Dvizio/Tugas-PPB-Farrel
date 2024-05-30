@@ -19,8 +19,8 @@ public interface ApiClientFaceReg {
     @POST("/users/verify/{Nrp}")
     Call<FaceVerificationResponseAPI> verify(@Path("Nrp") String nrp, @Body ResponseApi responseApi);
 
-    @GET("/users/{Nrp}")
-    Call<HeaderApiIMG> getUser(@Path("Nrp") String nrp);
+    @GET("/logs/{Nrp}")
+    Call<LogResponse> getLogs(@Path("Nrp") String nrp);
 
     @DELETE("/users/{subjectId}")
     Call<HeaderApiIMG> deleteItem(@Path("subjectId") String subjectId);

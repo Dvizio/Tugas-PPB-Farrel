@@ -230,25 +230,26 @@ public class Preview extends AppCompatActivity {
 
     // Handle verification response
     private void handleVerificationResponse(Response<FaceVerificationResponseAPI> response) {
-        if (response.code() == 200) {
-            new SweetAlertDialog(Preview.this, SweetAlertDialog.SUCCESS_TYPE)
-                    .setTitleText("Face Data Added")
-                    .setContentText("Face Verified")
-                    .setConfirmText("OK")
-                    .setConfirmClickListener(sDialog -> {
-                        sDialog.dismiss();
-                        Intent intent = new Intent(Preview.this, UserLoggedIn.class);
-                        toDo = "LoggedIn";
-                        intent.putExtra("BTN", toDo);
-                        intent.putExtra("Nrp", nrp);
-                        intent.putExtra("Nama", nama);
-                        startActivity(intent);
-                        finish();
-                    }).show();
-        } else {
+        FaceVerificationResponseAPI verificationData = response.body();
+        if (verificationData.getData().isVerified()) {
+                new SweetAlertDialog(Preview.this, SweetAlertDialog.SUCCESS_TYPE)
+                        .setTitleText("Success")
+                        .setContentText("Face Verified")
+                        .setConfirmText("OK")
+                        .setConfirmClickListener(sDialog -> {
+                            sDialog.dismiss();
+                            Intent intent = new Intent(Preview.this, UserLoggedIn.class);
+                            toDo = "LoggedIn";
+                            intent.putExtra("BTN", toDo);
+                            intent.putExtra("Nrp", nrp);
+                            intent.putExtra("Nama", nama);
+                            startActivity(intent);
+                            finish();
+                        }).show();
+            } else {
             new SweetAlertDialog(Preview.this, SweetAlertDialog.WARNING_TYPE)
                     .setTitleText("Error")
-                    .setContentText(response.toString())
+                    .setContentText("Face Doesn't Match!")
                     .setConfirmText("OK")
                     .setConfirmClickListener(sDialog -> {
                         sDialog.dismiss();
