@@ -14,6 +14,7 @@ import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+import java.util.TimeZone;
 
 public class LogAdapter extends BaseAdapter {
     private Context context;
@@ -62,7 +63,9 @@ public class LogAdapter extends BaseAdapter {
     // Method to convert date format
     private String convertDateFormat(String inputDate) {
         SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS'Z'", Locale.getDefault());
+        inputFormat.setTimeZone(TimeZone.getTimeZone("UTC"));
         SimpleDateFormat outputFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss", Locale.getDefault());
+        outputFormat.setTimeZone(TimeZone.getTimeZone("Asia/Jakarta")); // Set to GMT+7
 
         try {
             Date date = inputFormat.parse(inputDate);

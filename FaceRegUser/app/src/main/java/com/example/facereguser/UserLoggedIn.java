@@ -7,6 +7,8 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
@@ -44,6 +46,9 @@ public class UserLoggedIn extends AppCompatActivity {
         Intent intent = getIntent();
         nrp = intent.getStringExtra("Nrp");
         nama = intent.getStringExtra("Nama");
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.your_color));
         toDo = "FindBtn";
 
         btnLogger.setOnClickListener(new View.OnClickListener() {

@@ -49,9 +49,9 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginLeft="50dp"
-        android:text="Delete"
-        android:textColor="#FFFFFF"
-        android:backgroundTint="#FF0000"
+        android:text="Login"
+        android:textColor="#000000"
+        android:background="@drawable/custom_button_toned"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/userdataname" />
 
@@ -61,7 +61,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="100dp"
         android:layout_marginRight="50dp"
-        android:text="Home"
+        android:text="Back"
         android:background="@drawable/custom_button_toned"
         android:textColor="#000000"
         app:layout_constraintEnd_toEndOf="parent"

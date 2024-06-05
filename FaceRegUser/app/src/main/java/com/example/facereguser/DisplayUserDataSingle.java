@@ -8,6 +8,8 @@ import android.os.Bundle;
 import android.util.Base64;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -48,7 +50,9 @@ public class DisplayUserDataSingle extends AppCompatActivity {
         userNrpTxt = findViewById(R.id.userdatanrp);
         userNameTxt = findViewById(R.id.userdataname);
         userImage = findViewById(R.id.userImageData);
-
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.your_color));
         Intent intent = getIntent();
         toDo = intent.getStringExtra("BTN");
 

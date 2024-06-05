@@ -16,6 +16,8 @@ import android.util.Log;
 import android.view.SurfaceHolder;
 import android.view.SurfaceView;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.Toast;
 
@@ -50,6 +52,9 @@ public class ScanFoto extends AppCompatActivity implements SurfaceHolder.Callbac
         toDo = intent.getStringExtra("BTN");
         namastr= intent.getStringExtra("Nama");
         nrpstr= intent.getStringExtra("Nrp");
+        Window window = getWindow();
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+        window.setStatusBarColor(getResources().getColor(R.color.your_color));
 
 
 
